@@ -54,7 +54,7 @@ const Navbar = () => {
                   <Link
                     key={link.href}
                     to={link.href}
-                    className="text-slate-700 hover:text-blue-600 font-medium transition-colors flex items-center gap-1"
+                    className={`text-slate-700 hover:text-blue-600 font-medium transition-colors flex items-center gap-1 whitespace-nowrap ${link.label === 'Admin Panel' ? 'leading-none' : ''}`}
                   >
                     <link.icon size={16} />
                     {link.label}
@@ -141,7 +141,7 @@ const Navbar = () => {
                     <Link
                       key={link.href}
                       to={link.href}
-                      className="flex items-center gap-2 px-3 py-2 text-base font-medium text-slate-700 hover:text-blue-600 hover:bg-slate-50 rounded-md transition-colors"
+                      className="flex items-center gap-2 px-3 py-2 text-base font-medium text-slate-700 hover:text-blue-600 hover:bg-slate-50 rounded-md transition-colors whitespace-nowrap"
                       onClick={() => setIsOpen(false)}
                     >
                       <link.icon size={18} />

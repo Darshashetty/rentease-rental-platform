@@ -4,6 +4,7 @@ const Order = require('../models/Order');
 const Product = require('../models/Product');
 const { protect, admin } = require('../middleware/auth');
 const sendEmail = require('../utils/sendEmail');
+const { orderConfirmation, orderApproved } = require('../utils/emailTemplates');
 
 const ALLOWED_TRANSITIONS = {
   Pending: ['Approved', 'Cancelled'],
@@ -56,11 +57,12 @@ router.post('/', protect, async (req, res) => {
     sendEmail({
       email: req.user.email,
       subject: 'Order Confirmation - RentEase',
-      message: `<h2>Order Confirmed!</h2>
-                <p>Hi ${req.user.name},</p>
-                <p>Your rental order for <strong>${product.name}</strong> has been placed successfully.</p>
-                <p>Total Cost: ₹${totalCost}</p>
-                <p>Thank you for using RentEase!</p>`
+      message: orderConfirmation({
+        userName: req.user.name,
+        productName: product.name,
+        totalCost,
+        orderId: createdOrder._id,
+      }),
     });
 
     res.status(201).json(createdOrder);
@@ -133,10 +135,11 @@ router.put('/:id/status', protect, admin, async (req, res) => {
       sendEmail({
         email: updatedOrder.userId.email,
         subject: 'Order Approved - RentEase',
-        message: `<h2>Order Approved!</h2>
-                  <p>Hi ${updatedOrder.userId.name},</p>
-                  <p>Your rental order for <strong>${updatedOrder.productId.name}</strong> has been officially approved by the admin.</p>
-                  <p>Check your dashboard for delivery updates.</p>`
+        message: orderApproved({
+          userName: updatedOrder.userId.name,
+          productName: updatedOrder.productId.name,
+          orderId: updatedOrder._id,
+        }),
       });
     }
 

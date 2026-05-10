@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { api } from '../context/AuthContext';
 import { toast } from 'react-hot-toast';
 import { useAuth } from '../hooks/useAuth';
+import { useRecentlyViewed } from '../hooks/useRecentlyViewed';
 
 const ProductDetail = () => {
   const { id } = useParams();
@@ -13,12 +14,19 @@ const ProductDetail = () => {
   const [loading, setLoading] = useState(true);
   const [inWishlist, setInWishlist] = useState(false);
   const { isAuthenticated } = useAuth();
+  const { add } = useRecentlyViewed();
 
   useEffect(() => {
     const fetchProduct = async () => {
       try {
         const { data } = await api.get(`/products/${id}`);
         setProduct(data);
+        // add to recently viewed (client-only)
+        try {
+          add && add(data);
+        } catch (e) {
+          // non-fatal
+        }
       } catch (error) {
         console.error('Error fetching product:', error);
       } finally {

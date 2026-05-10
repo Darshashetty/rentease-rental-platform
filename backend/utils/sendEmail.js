@@ -2,18 +2,15 @@ const nodemailer = require('nodemailer');
 
 const sendEmail = async (options) => {
   try {
-    // We create a reusable transporter using default SMTP transport or fake credentials
-    // If user hasn't provided EMAIL credentials, we'll log it instead of crashing.
     if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
-      console.log('⚠️ Email credentials not found in .env. Mocking email delivery:');
-      console.log(`To: ${options.email}`);
-      console.log(`Subject: ${options.subject}`);
-      console.log(`Message: \n${options.message}`);
+      console.warn('[email] SMTP credentials missing; skipping real send and logging payload for local development.');
+      console.log(`[email] to=${options.email}`);
+      console.log(`[email] subject=${options.subject}`);
       return;
     }
 
     const transporter = nodemailer.createTransport({
-      service: 'gmail', // or use host/port
+      service: 'gmail',
       auth: {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASS,
@@ -28,9 +25,9 @@ const sendEmail = async (options) => {
     };
 
     const info = await transporter.sendMail(mailOptions);
-    console.log('Email sent: %s', info.messageId);
+    console.log(`[email] sent successfully messageId=${info.messageId} to=${options.email}`);
   } catch (error) {
-    console.error('Error sending email: ', error);
+    console.error(`[email] failed to send to=${options?.email}: ${error.message}`);
   }
 };
 

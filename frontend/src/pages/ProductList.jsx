@@ -5,6 +5,7 @@ import { toast } from 'react-hot-toast';
 import { api } from '../context/AuthContext';
 import { useAuth } from '../hooks/useAuth';
 import ProductCard from '../components/ProductCard';
+import RecentlyViewed from '../components/RecentlyViewed';
 
 const ProductList = () => {
   const [products, setProducts] = useState([]);
@@ -165,6 +166,7 @@ const ProductList = () => {
       </div>
 
       {/* Product Grid */}
+      <RecentlyViewed />
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {products && products.length > 0 ? (
           products.map((product) => (

@@ -30,7 +30,7 @@ const ProductCard = ({ product, canWishlist, inWishlist, onToggleWishlist }) => 
               In Stock
             </span>
           ) : (
-            <span className="bg-red-500 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-md">
+            <span className="bg-amber-100 text-amber-800 text-xs font-semibold px-3 py-1.5 rounded-full border border-amber-200 shadow-sm">
               Out of Stock
             </span>
           )}

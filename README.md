@@ -19,6 +19,7 @@ RentEase is a responsive MERN-stack platform for browsing rental listings, manag
 * **JWT Authentication & Role-Based Access**
 * **Server-Side Pagination & Debounced Search**
 * **Wishlist & Order Lifecycle Management**
+* **Recently Viewed (client-side)**
 * **Product Image Uploads with Multer**
 * **Automated Email Notifications with Nodemailer**
 * **Responsive MERN Stack Architecture**
@@ -32,12 +33,14 @@ RentEase is a responsive MERN-stack platform for browsing rental listings, manag
 - **Role-Based Admin Access:** Dedicated admin dashboards and management views.
 - **Product Search & Filters:** Dynamic filtering by name, category, availability, and sort order.
 - **Debounced Search:** Reduced request noise while typing in the product search bar.
+- **Recently Viewed:** Client-side localStorage tracking for quick return to recently inspected items.
 - **Server-Side Pagination:** Efficient product retrieval with MongoDB `skip()` and `limit()`.
 - **Wishlist/Favorites:** Logged-in users can save and manage products for later.
 - **Product Image Uploads:** Admin image handling through Multer-backed upload endpoints.
 - **Order Placement:** Clear checkout flow with persisted order records.
 - **Order Status Tracking:** Admins manage order transitions with backend validation.
 - **Nodemailer Email Notifications:** Automated email delivery for user-facing events.
+- **Polished UI Components:** Clean, responsive product cards, wishlist, and admin views for recruiter presentations.
 - **Responsive UI:** Mobile-friendly layouts built with Tailwind CSS.
 - **Toast Notifications:** Lightweight feedback for success and error states.
 
@@ -76,7 +79,8 @@ rentease-rental-platform/
 │   └── index.js         # Entry point
 └── frontend/
     ├── src/
-    │   ├── components/  # Reusable UI (Cards, Loaders, Navbar)
+      │   ├── components/  # Reusable UI (Cards, Loaders, Navbar)
+      │   │   └── RecentlyViewed.jsx # lightweight recently viewed UI
     │   ├── context/     # AuthContext and Axios global config
     │   ├── hooks/       # Custom React Hooks
     │   └── pages/       # Route-level views (Dashboard, ProductList)
