@@ -54,7 +54,7 @@ const Navbar = () => {
                   <Link
                     key={link.href}
                     to={link.href}
-                    className={`text-slate-700 hover:text-blue-600 font-medium transition-colors flex items-center gap-1 whitespace-nowrap ${link.label === 'Admin Panel' ? 'leading-none' : ''}`}
+                      className={`flex items-center gap-1 whitespace-nowrap text-slate-700 hover:text-blue-600 font-medium transition-colors ${link.label === 'Admin Panel' ? 'leading-none' : ''}`}
                   >
                     <link.icon size={16} />
                     {link.label}

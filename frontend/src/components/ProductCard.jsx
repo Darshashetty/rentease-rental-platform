@@ -5,7 +5,7 @@ const ProductCard = ({ product, canWishlist, inWishlist, onToggleWishlist }) => 
   if (!product?._id) return null;
 
   return (
-    <div className="group bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col h-full">
+    <div className="group bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-lg transition-all duration-300 flex flex-col h-full">
       <div className="relative aspect-square overflow-hidden bg-slate-50">
         <img
           src={product.image || '/placeholder.png'}

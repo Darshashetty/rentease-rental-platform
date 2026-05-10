@@ -78,12 +78,12 @@ const AdminMaintenance = () => {
   }
 
   return (
-    <div className="flex h-screen bg-slate-50">
+    <div className="flex min-h-screen bg-slate-50">
       <AdminSidebar isOpen={sidebarOpen} onToggle={() => setSidebarOpen(!sidebarOpen)} />
       
       <main className="flex-1 lg:ml-64 overflow-auto">
-        <div className="p-6 md:p-8">
-          <div className="mb-8">
+        <div className="p-6 md:p-8 space-y-8">
+          <div>
             <div className="flex items-center gap-3 mb-2">
               <Wrench className="h-8 w-8 text-slate-700" />
               <h1 className="text-3xl font-bold text-slate-800">Maintenance Requests</h1>

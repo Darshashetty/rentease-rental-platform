@@ -25,9 +25,9 @@ function App() {
     <AuthProvider>
       <ErrorBoundary>
         <Router>
-          <div className="min-h-screen flex flex-col bg-slate-50">
+          <div className="min-h-screen flex flex-col bg-[#f8fafc]">
             <Navbar />
-            <main className="flex-grow container mx-auto px-4 py-8">
+            <main className="flex-1 w-full py-8">
               <ErrorBoundary>
               <Routes>
                 {/* Public Routes */}
@@ -69,7 +69,7 @@ function App() {
             </main>
           
             {/* Footer */}
-            <footer className="bg-white border-t py-6 text-center text-slate-500">
+            <footer className="mt-auto bg-white border-t border-slate-200 py-6 text-center text-slate-500">
               <p>&copy; 2026 RentEase. All rights reserved.</p>
             </footer>
           

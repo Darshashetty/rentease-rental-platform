@@ -74,12 +74,12 @@ const AdminOrders = () => {
   }
 
   return (
-    <div className="flex h-screen bg-slate-50">
+    <div className="flex min-h-screen bg-slate-50">
       <AdminSidebar isOpen={sidebarOpen} onToggle={() => setSidebarOpen(!sidebarOpen)} />
       
       <main className="flex-1 lg:ml-64 overflow-auto">
-        <div className="p-6 md:p-8">
-          <div className="mb-8">
+        <div className="p-6 md:p-8 space-y-8">
+          <div>
             <h1 className="text-3xl font-bold text-slate-800">Orders Management</h1>
             <p className="text-slate-500 mt-2">View and manage all rental orders</p>
           </div>
