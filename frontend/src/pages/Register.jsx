@@ -1,7 +1,8 @@
-import { useState, useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
 import { toast } from 'react-hot-toast';
+import { useAuth } from '../hooks/useAuth';
 
 const Register = () => {
   const [name, setName] = useState('');
@@ -9,8 +10,15 @@ const Register = () => {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const { register } = useContext(AuthContext);
+  const { isAuthenticated } = useAuth();
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      navigate('/dashboard', { replace: true });
+    }
+  }, [isAuthenticated, navigate]);
 
   const validateEmail = (email) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -68,8 +76,8 @@ const Register = () => {
     setLoading(true);
     try {
       await register(name.trim(), email.trim(), password);
-      toast.success('Account created successfully! Please log in.');
-      navigate('/login');
+      toast.success('Account created successfully!');
+      navigate('/dashboard');
     } catch (error) {
       console.error('Registration error:', error);
       toast.error(error.response?.data?.message || 'Failed to register. Please try again.');

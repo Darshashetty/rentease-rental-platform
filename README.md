@@ -1,30 +1,45 @@
 # RentEase – Full Stack Rental Management Platform
 
-RentEase is a modern, responsive MERN-stack platform built for discovering, tracking, and renting out appliances and furniture. Designed with a clean architecture, it demonstrates a complete, real-world application workflow—from secure JWT authentication and admin dashboards to wishlist management, order processing, local image uploads, and automated email notifications.
+![MERN](https://img.shields.io/badge/Stack-MERN-2563eb)
+![Frontend](https://img.shields.io/badge/Frontend-React%20%2B%20Vite-0ea5e9)
+![Backend](https://img.shields.io/badge/Backend-Node%20%2B%20Express-16a34a)
+![Database](https://img.shields.io/badge/Database-MongoDB-15803d)
+
+RentEase is a responsive MERN-stack platform for browsing rental listings, managing saved items, placing orders, and handling admin workflows. The project emphasizes secure JWT-based authentication, maintainable architecture, and a polished UI built with React, Tailwind CSS, Express, and MongoDB.
 
 ---
 
-## 🚀 Live Demo
-- **Frontend URL:** [Deploy link placeholder]
-- **Backend URL:** [Deploy link placeholder]
+## 🔗 Repository
+- **GitHub:** [Darshashetty/rentease-rental-platform](https://github.com/Darshashetty/rentease-rental-platform)
+
+---
+
+## 🚀 Key Highlights
+
+* **JWT Authentication & Role-Based Access**
+* **Server-Side Pagination & Debounced Search**
+* **Wishlist & Order Lifecycle Management**
+* **Product Image Uploads with Multer**
+* **Automated Email Notifications with Nodemailer**
+* **Responsive MERN Stack Architecture**
 
 ---
 
 ## ✨ Features
 
-- **JWT Authentication:** Secure user sessions and password hashing using bcrypt.
-- **Protected Routes:** Frontend protection with React Router.
-- **Role-Based Admin Access:** Specialized dashboards for users vs. administrators.
-- **Product Search & Filters:** Dynamic filtering by category and availability.
-- **Debounced Search:** Highly optimized search input (500ms delay) to prevent API spam.
-- **Server-Side Pagination:** Efficient MongoDB `.skip()` and `.limit()` queries for scalable browsing.
-- **Wishlist/Favorites:** Users can toggle items to their personal wishlist.
-- **Product Image Uploads:** Handled securely via Multer middleware.
-- **Order Placement:** Complete checkout flow.
-- **Order Status Tracking:** Admins manage transitions (Pending -> Approved -> Rented).
-- **Nodemailer Email Notifications:** Automated HTML emails for order confirmations.
-- **Responsive UI:** CSS Grids and Flexbox styled with Tailwind CSS.
-- **Toast Notifications:** Clean UX feedback via `react-hot-toast`.
+- **JWT Authentication:** Secure sessions with password hashing and protected routes.
+- **Protected Routes:** Frontend route guards for authenticated and admin-only pages.
+- **Role-Based Admin Access:** Dedicated admin dashboards and management views.
+- **Product Search & Filters:** Dynamic filtering by name, category, availability, and sort order.
+- **Debounced Search:** Reduced request noise while typing in the product search bar.
+- **Server-Side Pagination:** Efficient product retrieval with MongoDB `skip()` and `limit()`.
+- **Wishlist/Favorites:** Logged-in users can save and manage products for later.
+- **Product Image Uploads:** Admin image handling through Multer-backed upload endpoints.
+- **Order Placement:** Clear checkout flow with persisted order records.
+- **Order Status Tracking:** Admins manage order transitions with backend validation.
+- **Nodemailer Email Notifications:** Automated email delivery for user-facing events.
+- **Responsive UI:** Mobile-friendly layouts built with Tailwind CSS.
+- **Toast Notifications:** Lightweight feedback for success and error states.
 
 ---
 
@@ -73,19 +88,22 @@ rentease-rental-platform/
 ## 📸 Screenshots
 
 ### Home Page
-![Home Page Placeholder](https://via.placeholder.com/800x400?text=Home+Page+Screenshot)
+![Home Page](screenshots/homepage.png)
 
 ### Product Listing & Filters
-![Product Listing Placeholder](https://via.placeholder.com/800x400?text=Product+Listing+Screenshot)
+![Product Listing](screenshots/product-listing-filters.png)
 
 ### User Wishlist
-![Wishlist Placeholder](https://via.placeholder.com/800x400?text=Wishlist+Screenshot)
+![Wishlist](screenshots/wishlist.png)
 
 ### Admin Dashboard
-![Admin Dashboard Placeholder](https://via.placeholder.com/800x400?text=Admin+Dashboard+Screenshot)
+![Admin Dashboard](screenshots/admin-dashboard.png)
+
+### Checkout / Orders Page
+![Checkout / Orders](screenshots/checkout-orders.png)
 
 ### Mobile Responsive View
-![Mobile View Placeholder](https://via.placeholder.com/400x600?text=Mobile+Responsive+View)
+![Mobile View](screenshots/mobile-responsive.png)
 
 ---
 
@@ -93,7 +111,7 @@ rentease-rental-platform/
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/yourusername/rentease-rental-platform.git
+   git clone https://github.com/Darshashetty/rentease-rental-platform.git
    cd rentease-rental-platform
    ```
 
@@ -151,40 +169,34 @@ VITE_APP_NAME=RentEase
 ## 🔌 API Features Overview
 
 - **Centralized Axios Handling:** All HTTP requests use a globally configured Axios instance that intercepts requests to inject JWT Bearer tokens automatically.
-- **Protected APIs:** Sensitive backend endpoints (like `/api/orders` or `/api/products/upload-image`) use a custom `protect` and `admin` middleware to verify token signatures.
-- **Pagination Queries:** The product search endpoint utilizes MongoDB `skip()` and `limit()` combined with Regex for lightning-fast querying without loading the entire DB into memory.
-- **Upload Handling:** The `upload-image` endpoint intercepts multipart-form data using Multer, sanitizes filenames, and stores them in the static `uploads/` directory.
+- **Protected APIs:** Sensitive backend endpoints use custom middleware to verify token signatures.
+- **Pagination Queries:** The product search endpoint utilizes MongoDB `skip()` and `limit()` combined with Regex for efficient querying.
+- **Upload Handling:** The image endpoint intercepts multipart-form data using Multer, sanitizes filenames, and stores them in the static `uploads/` directory.
 
 ---
 
 ## 🌍 Deployment
 
-- **Frontend (Vercel):** Optimized for SPA routing with a `vercel.json` file to ensure URLs resolve correctly upon page refresh.
-- **Backend (Render):** Configured to accept dynamic CORS requests relying on the `CLIENT_URL` environment variable.
-- **Database:** Fully integrated with MongoDB Atlas cloud clusters.
+- **Frontend:** Configure any SPA host that supports client-side routing.
+- **Backend:** Deploy to any Node.js host that supports environment variables and CORS configuration.
+- **Database:** Works with MongoDB Atlas or a local MongoDB instance.
 
 ---
 
 ## 💼 What This Project Demonstrates
 
-- **Full-Stack Development:** Seamlessly integrating a modern React UI with a robust Node.js backend.
-- **Authentication Systems:** Implementing industry-standard JWT protocols.
-- **REST API Design:** Structuring clear, maintainable, and stateless HTTP endpoints.
-- **Responsive UI Engineering:** Building mobile-first layouts and utilizing skeleton loaders/empty states.
-- **Backend Architecture:** Separating concerns into Routes, Controllers, Middleware, and Utilities.
-- **Real-World Workflows:** Handling real user interactions like dynamic searching, file uploads, and transactional email triggers.
+- **Full-Stack Development:** Integrating a modern React UI with a Node.js backend.
+- **Authentication Systems:** Implementing secure JWT-based authentication.
+- **REST API Design:** Structuring maintainable and stateless HTTP endpoints.
+- **Responsive UI Engineering:** Building mobile-first layouts with loading and empty states.
+- **Backend Architecture:** Separating concerns with routes, middleware, and models.
+- **Real-World Workflows:** Handling dynamic search, file uploads, and transactional emails.
 
 ---
 
-## 🔑 Demo Credentials
+## 🔑 Access Notes
 
-**Admin Login**
-- Email: `admin@example.com`
-- Password: `admin123`
-
-**Demo User Login**
-- Email: `demo@example.com`
-- Password: `demo123`
+*Access details are available upon request.*
 
 ---
 

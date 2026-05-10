@@ -23,11 +23,12 @@ import AdminMaintenance from './pages/AdminMaintenance';
 function App() {
   return (
     <AuthProvider>
-      <Router>
-        <div className="min-h-screen flex flex-col bg-slate-50">
-          <Navbar />
-          <main className="flex-grow container mx-auto px-4 py-8">
-            <ErrorBoundary>
+      <ErrorBoundary>
+        <Router>
+          <div className="min-h-screen flex flex-col bg-slate-50">
+            <Navbar />
+            <main className="flex-grow container mx-auto px-4 py-8">
+              <ErrorBoundary>
               <Routes>
                 {/* Public Routes */}
                 <Route path="/" element={<Home />} />
@@ -64,17 +65,18 @@ function App() {
                 {/* 404 Route */}
                 <Route path="*" element={<Navigate to="/" replace />} />
               </Routes>
-            </ErrorBoundary>
-          </main>
+              </ErrorBoundary>
+            </main>
           
-          {/* Footer */}
-          <footer className="bg-white border-t py-6 text-center text-slate-500">
-            <p>&copy; 2026 RentEase. All rights reserved.</p>
-          </footer>
+            {/* Footer */}
+            <footer className="bg-white border-t py-6 text-center text-slate-500">
+              <p>&copy; 2026 RentEase. All rights reserved.</p>
+            </footer>
           
-          <Toaster position="top-right" />
-        </div>
-      </Router>
+            <Toaster position="top-right" />
+          </div>
+        </Router>
+      </ErrorBoundary>
     </AuthProvider>
   );
 }
