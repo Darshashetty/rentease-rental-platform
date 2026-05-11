@@ -78,14 +78,15 @@ const AdminOrders = () => {
       <AdminSidebar isOpen={sidebarOpen} onToggle={() => setSidebarOpen(!sidebarOpen)} />
       
       <main className="flex-1 lg:ml-64 overflow-auto">
-        <div className="p-6 md:p-8 space-y-8">
-          <div>
+        <div className="px-4 py-6 md:px-8 md:py-8">
+          <div className="max-w-6xl mx-auto space-y-6">
+            <div className="space-y-1">
             <h1 className="text-3xl font-bold text-slate-800">Orders Management</h1>
-            <p className="text-slate-500 mt-2">View and manage all rental orders</p>
-          </div>
+            <p className="text-slate-500">View and manage all rental orders</p>
+            </div>
 
           {/* Filters */}
-          <div className="bg-white p-4 rounded-xl shadow-sm border border-slate-100 mb-6">
+          <div className="bg-white p-4 rounded-2xl shadow-sm border border-slate-200">
             <div className="flex items-center gap-2 mb-3">
               <Filter className="h-5 w-5 text-slate-600" />
               <h3 className="font-semibold text-slate-700">Filters</h3>
@@ -120,7 +121,7 @@ const AdminOrders = () => {
           </div>
 
           {/* Orders Table */}
-          <div className="bg-white rounded-xl shadow-sm border border-slate-100 overflow-hidden">
+          <div className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
             {filteredOrders.length === 0 ? (
               <div className="p-8 text-center">
                 <p className="text-slate-500 mb-4">No orders found</p>
@@ -187,7 +188,7 @@ const AdminOrders = () => {
 
           {/* Extensions Summary */}
           {filteredOrders.some(order => order.extensions && order.extensions.length > 0) && (
-            <div className="mt-6 bg-white rounded-xl shadow-sm border border-slate-100 p-6">
+            <div className="mt-2 bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
               <h2 className="text-lg font-bold text-slate-800 mb-4">Pending Extensions</h2>
               <div className="space-y-3">
                 {filteredOrders.map(order => {
@@ -218,6 +219,7 @@ const AdminOrders = () => {
               </div>
             </div>
           )}
+          </div>
         </div>
       </main>
     </div>

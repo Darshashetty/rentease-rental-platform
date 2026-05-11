@@ -82,17 +82,18 @@ const AdminMaintenance = () => {
       <AdminSidebar isOpen={sidebarOpen} onToggle={() => setSidebarOpen(!sidebarOpen)} />
       
       <main className="flex-1 lg:ml-64 overflow-auto">
-        <div className="p-6 md:p-8 space-y-8">
-          <div>
+        <div className="px-4 py-6 md:px-8 md:py-8">
+          <div className="max-w-6xl mx-auto space-y-6">
+            <div className="space-y-1">
             <div className="flex items-center gap-3 mb-2">
               <Wrench className="h-8 w-8 text-slate-700" />
               <h1 className="text-3xl font-bold text-slate-800">Maintenance Requests</h1>
             </div>
-            <p className="text-slate-500 mt-2">View and manage all maintenance requests</p>
-          </div>
+            <p className="text-slate-500">View and manage all maintenance requests</p>
+            </div>
 
           {/* Filters */}
-          <div className="bg-white p-4 rounded-xl shadow-sm border border-slate-100 mb-6">
+          <div className="bg-white p-4 rounded-2xl shadow-sm border border-slate-200">
             <div className="flex items-center gap-2 mb-3">
               <Filter className="h-5 w-5 text-slate-600" />
               <h3 className="font-semibold text-slate-700">Filters</h3>
@@ -127,7 +128,7 @@ const AdminMaintenance = () => {
           </div>
 
           {/* Maintenance Table */}
-          <div className="bg-white rounded-xl shadow-sm border border-slate-100 overflow-hidden">
+          <div className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
             {filteredMaintenance.length === 0 ? (
               <div className="p-8 text-center">
                 <Wrench className="h-12 w-12 text-slate-300 mx-auto mb-3" />
@@ -188,6 +189,7 @@ const AdminMaintenance = () => {
                 </table>
               </div>
             )}
+          </div>
           </div>
         </div>
       </main>

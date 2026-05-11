@@ -111,30 +111,30 @@ const Dashboard = () => {
   const maintenanceEligibleOrders = orders.filter(o => o && ['Rented'].includes(o.status));
 
   return (
-    <div className="max-w-6xl mx-auto py-8">
-      <div className="mb-8">
+    <div className="max-w-6xl mx-auto px-4 py-8 sm:px-6 lg:px-8 space-y-8">
+      <div className="space-y-1">
         <h1 className="text-3xl font-bold text-slate-800">My Dashboard</h1>
         <p className="text-slate-500">Welcome back, {user?.name || 'User'}!</p>
       </div>
 
-      <div className="grid lg:grid-cols-3 gap-8">
-        <div className="lg:col-span-2 space-y-8">
-          <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
-            <h2 className="text-xl font-bold text-slate-800 mb-6 flex items-center gap-2">
+      <div className="grid lg:grid-cols-3 gap-6 xl:gap-8">
+        <div className="lg:col-span-2 space-y-6 xl:space-y-8">
+          <div className="bg-white p-5 lg:p-6 rounded-2xl shadow-sm border border-slate-200">
+            <h2 className="text-xl font-bold text-slate-800 mb-5 lg:mb-6 flex items-center gap-2">
               <Package className="h-5 w-5 text-blue-600" /> Active Rentals
             </h2>
             
             {!orders || orders.length === 0 ? (
-              <div className="text-center py-12">
+              <div className="text-center py-10 lg:py-12">
                 <p className="text-slate-500 mb-4">You have no active rentals yet.</p>
                 <a href="/products" className="inline-block px-6 py-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition">
                   Browse Products
                 </a>
               </div>
             ) : (
-              <div className="space-y-4">
+              <div className="space-y-3 lg:space-y-4">
                 {orders?.filter(order => order && order.productId && order.productId._id)?.map(order => (
-                  <div key={order?._id} className="border border-slate-100 rounded-xl p-4 flex flex-col sm:flex-row gap-4 items-start">
+                  <div key={order?._id} className="border border-slate-200 rounded-2xl p-4 flex flex-col sm:flex-row gap-4 items-start bg-slate-50/40">
                     <img src={order?.productId?.image || '/placeholder.png'} alt={order?.productId?.name || 'Unknown Product'} className="w-20 h-20 object-cover rounded-lg shrink-0" />
                     <div className="flex-grow w-full">
                       <div className="flex justify-between items-start mb-2">
@@ -161,7 +161,7 @@ const Dashboard = () => {
                           <p className="text-xs font-semibold text-slate-700 mb-2">Extensions:</p>
                           <div className="space-y-1">
                             {order.extensions?.filter(ext => ext && ext._id)?.map(ext => (
-                              <div key={ext._id} className="text-xs p-2 bg-slate-50 rounded border border-slate-100">
+                              <div key={ext._id} className="text-xs p-2.5 bg-white rounded-xl border border-slate-200">
                                 <div className="flex justify-between items-center">
                                   <span className="font-medium">{ext.extendedMonths} months - ₹{ext.extendedCost}</span>
                                   <span className={`px-2 py-0.5 rounded text-xs font-semibold ${
@@ -185,9 +185,9 @@ const Dashboard = () => {
           </div>
         </div>
 
-        <div className="space-y-8">
-          <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
-            <h2 className="text-xl font-bold text-slate-800 mb-6 flex items-center gap-2">
+        <div className="space-y-6 xl:space-y-8">
+          <div className="bg-white p-5 lg:p-6 rounded-2xl shadow-sm border border-slate-200">
+            <h2 className="text-xl font-bold text-slate-800 mb-5 lg:mb-6 flex items-center gap-2">
               <Wrench className="h-5 w-5 text-amber-500" /> Request Maintenance
             </h2>
             <form onSubmit={handleMaintenanceSubmit} className="space-y-4">
@@ -233,20 +233,20 @@ const Dashboard = () => {
             </form>
           </div>
 
-          <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
-            <h2 className="text-xl font-bold text-slate-800 mb-6 flex items-center gap-2">
+          <div className="bg-white p-5 lg:p-6 rounded-2xl shadow-sm border border-slate-200">
+            <h2 className="text-xl font-bold text-slate-800 mb-5 lg:mb-6 flex items-center gap-2">
               <Clock className="h-5 w-5 text-purple-600" /> Rental Extensions
             </h2>
             
             {/* Active rentals eligible for extension */}
-            <div className="mb-6">
+            <div className="mb-5 lg:mb-6">
               <h3 className="text-sm font-semibold text-slate-700 mb-3">Your Active Rentals</h3>
               {orders?.filter(o => o && o.status === 'Rented' && o.productId && o.productId._id)?.length === 0 ? (
                 <p className="text-sm text-slate-500 py-2">No active rentals available for extension</p>
               ) : (
                 <div className="space-y-2 mb-4">
                   {orders?.filter(o => o && o.status === 'Rented' && o.productId && o.productId._id)?.map(order => (
-                    <div key={order._id} className="p-2 bg-slate-50 rounded-lg border border-slate-100 text-sm">
+                    <div key={order._id} className="p-2.5 bg-white rounded-xl border border-slate-200 text-sm">
                       <div className="font-medium text-slate-800">{order.productId?.name || 'Item'}</div>
                       <div className="text-slate-500 text-xs">₹{order.productId?.monthlyRent}/month</div>
                     </div>
