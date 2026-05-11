@@ -5,16 +5,33 @@
 ![Backend](https://img.shields.io/badge/Backend-Node%20%2B%20Express-16a34a)
 ![Database](https://img.shields.io/badge/Database-MongoDB-15803d)
 
-RentEase is a polished MERN-stack rental platform featuring role-based authentication, responsive dashboards, and a modern layered UI design. Built with React, Vite, Tailwind CSS, Express, and MongoDB, it demonstrates production-quality practices including secure JWT authentication, server-side pagination, email notifications, and admin workflows.
+A production-ready MERN rental platform with JWT authentication, role-based access control, and modern UI design. Features secure multi-tenant workflows, admin dashboards, product management, order processing, and email notifications. Built to demonstrate full-stack development practices including protected routes, server-side pagination, file uploads, and cloud deployment.
 
 ---
 
-## 🔗 Repository
-- **GitHub:** [Darshashetty/rentease-rental-platform](https://github.com/Darshashetty/rentease-rental-platform)
+## 🌐 Live Deployment
+
+- **Frontend:** [https://rentease-rental-platform-black.vercel.app](https://rentease-rental-platform-black.vercel.app)
+- **Backend API:** [https://rentease-rental-platform.onrender.com](https://rentease-rental-platform.onrender.com)
+- **Repository:** [GitHub](https://github.com/Darshashetty/rentease-rental-platform)
 
 ---
 
-## 🚀 Key Highlights
+## � What This Project Demonstrates
+
+- **Full-Stack Development:** Complete MERN application from frontend UI to backend API and database.
+- **Authentication & Authorization:** JWT-based session management with secure password hashing and role-based route protection.
+- **Multi-Tenant Architecture:** Separate user roles (tenant, owner, admin) with tailored dashboards and permissions.
+- **Database Design:** MongoDB schema modeling for users, products, orders, and maintenance requests with proper indexing.
+- **RESTful API Design:** Structured Express endpoints with error handling, middleware composition, and CORS configuration.
+- **State Management:** React Context API for centralized auth state and Axios instance management.
+- **UI/UX Design:** Responsive Tailwind CSS layout with layered visual hierarchy, mobile-first approach.
+- **Production Deployment:** Vercel frontend, Render backend, MongoDB Atlas cloud database with environment-based configuration.
+- **File Handling:** Multer for product image uploads with static file serving and validation.
+- **Server-Side Pagination:** Efficient data retrieval with limit/offset pagination and sorting.
+- **Real-Time Feedback:** Toast notifications and form validation for seamless user experience.
+
+---
 
 - **Responsive Dashboard Design** with tenant, owner, and admin role-based views
 - **Layered Modern UI Styling** with professional depth and spacing harmony
@@ -93,23 +110,14 @@ rentease-rental-platform/
 
 ## 📸 Screenshots
 
-### Home Page
-![Home Page](screenshots/homepage.png)
+### Product Listing
+![Product Listing](screenshots/products.png)
 
-### Product Listing & Filters
-![Product Listing](screenshots/product-listing-filters.png)
-
-### User Wishlist
-![Wishlist](screenshots/wishlist.png)
-
-### Admin Dashboard
-![Admin Dashboard](screenshots/admin-dashboard.png)
-
-### Checkout / Orders Page
-![Checkout / Orders](screenshots/checkout-orders.png)
+### Checkout / Orders
+![Checkout](screenshots/checkout.png)
 
 ### Mobile Responsive View
-![Mobile View](screenshots/mobile-responsive.png)
+![Mobile View](screenshots/mobile-view.png)
 
 ---
 
@@ -156,19 +164,30 @@ rentease-rental-platform/
 
 ### Backend (`backend/.env`)
 ```env
+# Local Development
+MONGO_URI=mongodb://127.0.0.1:27017/rentease
+JWT_SECRET=your_jwt_secret_key
 PORT=5000
-MONGO_URI=mongodb+srv://<username>:<password>@cluster.mongodb.net/rentease?retryWrites=true&w=majority
-JWT_SECRET=your_super_secret_jwt_key
+NODE_ENV=development
+
+# Production (MongoDB Atlas)
+# MONGO_URI=mongodb+srv://username:password@cluster.mongodb.net/rentease?appName=Cluster0
+
+# Email Configuration (optional, console fallback if not set)
 EMAIL_USER=your_email@gmail.com
 EMAIL_PASS=your_app_specific_password
-CLIENT_URL=http://localhost:5173
 ```
 
 ### Frontend (`frontend/.env`)
 ```env
+# Local Development
 VITE_API_URL=http://localhost:5000/api
-VITE_APP_NAME=RentEase
+
+# Production
+# VITE_API_URL=https://rentease-rental-platform.onrender.com/api
 ```
+
+**Note:** `.env` files are git-ignored for security. Configure your own values based on `.env.example` files.
 
 ---
 
@@ -181,26 +200,12 @@ VITE_APP_NAME=RentEase
 
 ---
 
-## 🌍 Deployment
+## 🌍 Deployment Architecture
 
-- **Frontend:** Configure any SPA host that supports client-side routing.
-- **Backend:** Deploy to any Node.js host that supports environment variables and CORS configuration.
-- **Database:** Works with MongoDB Atlas or a local MongoDB instance.
-
----
-
-## 💼 What This Project Demonstrates
-
-- **Full-Stack MERN Architecture:** Integration of React, Node.js, Express, and MongoDB in a production-grade workflow.
-- **Authentication & Security:** JWT implementation, password hashing, protected endpoints, and role-based access control.
-- **RESTful API Design:** Stateless endpoints with proper separation of concerns via routes, middleware, and models.
-- **Modern Frontend Engineering:** React hooks, centralized state management via Context API, responsive Tailwind CSS design.
-- **Database Optimization:** Server-side pagination, indexed queries, and Mongoose schema design for scalability.
-- **File Handling & Uploads:** Multer integration for image uploads with static file serving and security validation.
-- **Email Integration:** Nodemailer setup with SMTP fallback for reliable transactional communications.
-- **UI/UX Polish:** Layered visual design with professional spacing, responsive layouts, and real-time feedback systems.
-- **Admin Workflows:** Order and maintenance management interfaces demonstrating operational dashboards.
-- **Error Handling & Logging:** Centralized error middleware and debugging strategies.
+- **Frontend:** Deployed on Vercel with automatic builds from GitHub and environment-based configuration.
+- **Backend:** Deployed on Render with Node.js runtime and persistent environment variables.
+- **Database:** MongoDB Atlas cloud instance with network access configuration and backups.
+- **CORS Configuration:** Allows requests from deployed frontend and local development ports.
 
 ---
 
