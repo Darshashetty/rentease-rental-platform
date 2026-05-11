@@ -137,16 +137,17 @@ const AdminProducts = () => {
   }
 
   return (
-    <div className="flex gap-6">
+    <div className="flex min-h-screen bg-slate-100">
       <AdminSidebar />
-      <div className="flex-1 lg:ml-64 px-4 py-8">
+      <div className="flex-1 lg:ml-64 px-4 py-6 md:px-8 md:py-8">
         <div className="max-w-7xl mx-auto">
-          {/* Header */}
-          <div className="flex justify-between items-center mb-8">
-            <div>
-              <h1 className="text-3xl font-bold text-slate-800">Products Management</h1>
-              <p className="text-slate-500">Manage your rental product catalog</p>
-            </div>
+          <div className="bg-slate-50 rounded-3xl border border-slate-200 shadow-sm p-6 lg:p-8 space-y-6">
+            {/* Header */}
+            <div className="flex justify-between items-center">
+              <div>
+                <h1 className="text-3xl font-bold text-slate-800">Products Management</h1>
+                <p className="text-slate-500">Manage your rental product catalog</p>
+              </div>
             <button
               onClick={() => setShowForm(!showForm)}
               className="bg-blue-600 hover:bg-blue-700 text-white rounded-lg px-4 py-2 font-medium flex items-center gap-2 transition"
@@ -361,6 +362,7 @@ const AdminProducts = () => {
                 </tbody>
               </table>
             </div>
+          </div>
           </div>
         </div>
       </div>

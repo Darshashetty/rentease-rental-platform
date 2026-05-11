@@ -111,13 +111,14 @@ const Dashboard = () => {
   const maintenanceEligibleOrders = orders.filter(o => o && ['Rented'].includes(o.status));
 
   return (
-    <div className="max-w-6xl mx-auto px-4 py-8 sm:px-6 lg:px-8 space-y-8">
-      <div className="space-y-1">
-        <h1 className="text-3xl font-bold text-slate-800">My Dashboard</h1>
-        <p className="text-slate-500">Welcome back, {user?.name || 'User'}!</p>
-      </div>
+    <div className="max-w-6xl mx-auto px-4 py-6 sm:px-6 lg:px-8 space-y-6">
+      <div className="bg-slate-50 rounded-3xl border border-slate-200 shadow-sm p-6 lg:p-8 space-y-6">
+        <div className="space-y-1">
+          <h1 className="text-3xl font-bold text-slate-800">My Dashboard</h1>
+          <p className="text-slate-500">Welcome back, {user?.name || 'User'}!</p>
+        </div>
 
-      <div className="grid lg:grid-cols-3 gap-6 xl:gap-8">
+        <div className="grid lg:grid-cols-3 gap-6 xl:gap-8">
         <div className="lg:col-span-2 space-y-6 xl:space-y-8">
           <div className="bg-white p-5 lg:p-6 rounded-2xl shadow-sm border border-slate-200">
             <h2 className="text-xl font-bold text-slate-800 mb-5 lg:mb-6 flex items-center gap-2">
@@ -331,6 +332,7 @@ const Dashboard = () => {
             </div>
           )}
         </div>
+      </div>
       </div>
     </div>
   );

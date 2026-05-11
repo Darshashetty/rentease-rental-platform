@@ -25,43 +25,47 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="bg-white shadow-md border-b sticky top-0 z-50">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+    <nav className="sticky top-0 z-50 border-b border-slate-200 bg-white shadow-sm">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="flex h-16 items-center justify-between gap-4">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
-            <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-lg">R</span>
+          <Link to="/" className="flex flex-none items-center gap-2 whitespace-nowrap hover:opacity-80 transition-opacity">
+            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-600">
+              <span className="text-lg font-bold text-white">R</span>
             </div>
-            <span className="font-bold text-xl text-slate-900">RentEase</span>
+            <span className="whitespace-nowrap text-xl font-bold text-slate-900 leading-none">RentEase</span>
           </Link>
           
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-6">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                to={link.href}
-                className="text-slate-700 hover:text-blue-600 font-medium transition-colors"
-              >
-                {link.label}
-              </Link>
-            ))}
+          <div className="hidden md:flex flex-1 items-center justify-end gap-4 lg:gap-5">
+            <div className="flex items-center gap-4 lg:gap-5">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  to={link.href}
+                  className="inline-flex h-10 items-center whitespace-nowrap text-sm font-medium leading-none text-slate-700 transition-colors hover:text-blue-600"
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </div>
             
             {isAuthenticated ? (
               <>
-                {userLinks.map((link) => link.show && (
-                  <Link
-                    key={link.href}
-                    to={link.href}
-                      className={`flex items-center gap-1 whitespace-nowrap text-slate-700 hover:text-blue-600 font-medium transition-colors ${link.label === 'Admin Panel' ? 'leading-none' : ''}`}
-                  >
-                    <link.icon size={16} />
-                    {link.label}
-                  </Link>
-                ))}
+                <div className="flex items-center gap-4 lg:gap-5">
+                  {userLinks.map((link) => link.show && (
+                    <Link
+                      key={link.href}
+                      to={link.href}
+                      className="inline-flex h-10 items-center gap-1 whitespace-nowrap text-sm font-medium leading-none text-slate-700 transition-colors hover:text-blue-600"
+                    >
+                      <link.icon size={16} />
+                      {link.label}
+                    </Link>
+                  ))}
+                </div>
                 
-                <div className="flex items-center gap-4 ml-4 pl-4 border-l border-slate-200">
+                <div className="ml-2 flex h-10 items-center gap-3 border-l border-slate-200 pl-4">
                   <div className="flex items-center gap-2">
                     {user?.profileImage ? (
                       <img
@@ -70,19 +74,19 @@ const Navbar = () => {
                         className="h-8 w-8 rounded-full object-cover"
                       />
                     ) : (
-                      <div className="h-8 w-8 rounded-full bg-blue-100 flex items-center justify-center">
+                      <div className="flex h-8 w-8 items-center justify-center rounded-full bg-blue-100">
                         <UserIcon size={18} className="text-blue-600" />
                       </div>
                     )}
-                    <div>
+                    <div className="leading-tight">
                       <p className="text-sm font-medium text-slate-900">{user?.name}</p>
-                      <p className="text-xs text-slate-500 capitalize">{user?.role}</p>
+                      <p className="text-xs capitalize text-slate-500">{user?.role}</p>
                     </div>
                   </div>
                   
                   <button
                     onClick={handleLogout}
-                    className="flex items-center gap-1 text-slate-600 hover:text-red-600 transition-colors p-2 rounded hover:bg-red-50"
+                    className="inline-flex h-10 w-10 items-center justify-center rounded-lg text-slate-600 transition-colors hover:bg-red-50 hover:text-red-600"
                     title="Logout"
                   >
                     <LogOut size={18} />
@@ -90,16 +94,16 @@ const Navbar = () => {
                 </div>
               </>
             ) : (
-              <div className="flex items-center space-x-3 ml-4 pl-4 border-l border-slate-200">
+              <div className="ml-2 flex h-10 items-center gap-3 border-l border-slate-200 pl-4">
                 <Link
                   to="/login"
-                  className="text-slate-700 hover:text-blue-600 font-medium transition-colors"
+                  className="inline-flex h-10 items-center whitespace-nowrap text-sm font-medium leading-none text-slate-700 transition-colors hover:text-blue-600"
                 >
                   Login
                 </Link>
                 <Link
                   to="/register"
-                  className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-medium transition-all shadow-sm hover:shadow-md"
+                  className="inline-flex h-10 items-center rounded-lg bg-blue-600 px-4 text-sm font-medium leading-none text-white shadow-sm transition-all hover:bg-blue-700 hover:shadow-md"
                 >
                   Sign Up
                 </Link>

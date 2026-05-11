@@ -91,14 +91,15 @@ const AdminDashboard = () => {
   }
 
   return (
-    <div className="flex min-h-screen bg-[#f8fafc]">
+    <div className="flex min-h-screen bg-slate-100">
       <AdminSidebar />
       <div className="flex-1 lg:ml-64 px-4 py-6 lg:py-8">
-        <div className="max-w-6xl mx-auto space-y-6 lg:space-y-8">
-          <div className="space-y-1">
-            <h1 className="text-3xl font-bold text-slate-800">Admin Dashboard</h1>
-            <p className="text-slate-500">Monitor orders, maintenance, and platform health at a glance.</p>
-          </div>
+        <div className="max-w-6xl mx-auto">
+          <div className="bg-slate-50 rounded-3xl border border-slate-200 shadow-sm p-6 lg:p-8 space-y-6">
+            <div className="space-y-1">
+              <h1 className="text-3xl font-bold text-slate-800">Admin Dashboard</h1>
+              <p className="text-slate-500">Monitor orders, maintenance, and platform health at a glance.</p>
+            </div>
 
           {stats && (
             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 lg:gap-6">
@@ -280,6 +281,7 @@ const AdminDashboard = () => {
               </div>
             </div>
           )}
+          </div>
         </div>
       </div>
     </div>

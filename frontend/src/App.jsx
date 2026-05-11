@@ -25,7 +25,7 @@ function App() {
     <AuthProvider>
       <ErrorBoundary>
         <Router>
-          <div className="min-h-screen flex flex-col bg-[#f8fafc]">
+          <div className="min-h-screen flex flex-col bg-slate-100">
             <Navbar />
             <main className="flex-1 w-full py-8">
               <ErrorBoundary>

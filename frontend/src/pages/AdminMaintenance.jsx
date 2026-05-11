@@ -78,19 +78,20 @@ const AdminMaintenance = () => {
   }
 
   return (
-    <div className="flex min-h-screen bg-slate-50">
+    <div className="flex min-h-screen bg-slate-100">
       <AdminSidebar isOpen={sidebarOpen} onToggle={() => setSidebarOpen(!sidebarOpen)} />
       
       <main className="flex-1 lg:ml-64 overflow-auto">
         <div className="px-4 py-6 md:px-8 md:py-8">
-          <div className="max-w-6xl mx-auto space-y-6">
-            <div className="space-y-1">
-            <div className="flex items-center gap-3 mb-2">
-              <Wrench className="h-8 w-8 text-slate-700" />
-              <h1 className="text-3xl font-bold text-slate-800">Maintenance Requests</h1>
-            </div>
-            <p className="text-slate-500">View and manage all maintenance requests</p>
-            </div>
+          <div className="max-w-6xl mx-auto">
+            <div className="bg-slate-50 rounded-3xl border border-slate-200 shadow-sm p-6 lg:p-8 space-y-6">
+              <div className="space-y-1">
+              <div className="flex items-center gap-3 mb-2">
+                <Wrench className="h-8 w-8 text-slate-700" />
+                <h1 className="text-3xl font-bold text-slate-800">Maintenance Requests</h1>
+              </div>
+              <p className="text-slate-500">View and manage all maintenance requests</p>
+              </div>
 
           {/* Filters */}
           <div className="bg-white p-4 rounded-2xl shadow-sm border border-slate-200">
@@ -190,6 +191,7 @@ const AdminMaintenance = () => {
               </div>
             )}
           </div>
+            </div>
           </div>
         </div>
       </main>

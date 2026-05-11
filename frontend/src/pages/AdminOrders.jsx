@@ -74,16 +74,17 @@ const AdminOrders = () => {
   }
 
   return (
-    <div className="flex min-h-screen bg-slate-50">
+    <div className="flex min-h-screen bg-slate-100">
       <AdminSidebar isOpen={sidebarOpen} onToggle={() => setSidebarOpen(!sidebarOpen)} />
       
       <main className="flex-1 lg:ml-64 overflow-auto">
         <div className="px-4 py-6 md:px-8 md:py-8">
-          <div className="max-w-6xl mx-auto space-y-6">
-            <div className="space-y-1">
-            <h1 className="text-3xl font-bold text-slate-800">Orders Management</h1>
-            <p className="text-slate-500">View and manage all rental orders</p>
-            </div>
+          <div className="max-w-6xl mx-auto">
+            <div className="bg-slate-50 rounded-3xl border border-slate-200 shadow-sm p-6 lg:p-8 space-y-6">
+              <div className="space-y-1">
+              <h1 className="text-3xl font-bold text-slate-800">Orders Management</h1>
+              <p className="text-slate-500">View and manage all rental orders</p>
+              </div>
 
           {/* Filters */}
           <div className="bg-white p-4 rounded-2xl shadow-sm border border-slate-200">
@@ -219,6 +220,7 @@ const AdminOrders = () => {
               </div>
             </div>
           )}
+            </div>
           </div>
         </div>
       </main>

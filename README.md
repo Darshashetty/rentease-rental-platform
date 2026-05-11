@@ -5,7 +5,7 @@
 ![Backend](https://img.shields.io/badge/Backend-Node%20%2B%20Express-16a34a)
 ![Database](https://img.shields.io/badge/Database-MongoDB-15803d)
 
-RentEase is a responsive MERN-stack platform for browsing rental listings, managing saved items, placing orders, and handling admin workflows. The project emphasizes secure JWT-based authentication, maintainable architecture, and a polished UI built with React, Tailwind CSS, Express, and MongoDB.
+RentEase is a polished MERN-stack rental platform featuring role-based authentication, responsive dashboards, and a modern layered UI design. Built with React, Vite, Tailwind CSS, Express, and MongoDB, it demonstrates production-quality practices including secure JWT authentication, server-side pagination, email notifications, and admin workflows.
 
 ---
 
@@ -16,33 +16,35 @@ RentEase is a responsive MERN-stack platform for browsing rental listings, manag
 
 ## 🚀 Key Highlights
 
-* **JWT Authentication & Role-Based Access**
-* **Server-Side Pagination & Debounced Search**
-* **Wishlist & Order Lifecycle Management**
-* **Recently Viewed (client-side)**
-* **Product Image Uploads with Multer**
-* **Automated Email Notifications with Nodemailer**
-* **Responsive MERN Stack Architecture**
+- **Responsive Dashboard Design** with tenant, owner, and admin role-based views
+- **Layered Modern UI Styling** with professional depth and spacing harmony
+- **JWT Authentication & Role-Based Access Control** for secure multi-tenant workflows
+- **Server-Side Pagination & Debounced Search** for efficient data retrieval
+- **Product Image Uploads** with Multer file handling
+- **Email Notifications** via Nodemailer with graceful fallback
+- **Admin Management Panel** for orders, products, and maintenance requests
+- **Wishlist & Recently Viewed** features for personalized UX
 
 ---
 
 ## ✨ Features
 
-- **JWT Authentication:** Secure sessions with password hashing and protected routes.
-- **Protected Routes:** Frontend route guards for authenticated and admin-only pages.
-- **Role-Based Admin Access:** Dedicated admin dashboards and management views.
-- **Product Search & Filters:** Dynamic filtering by name, category, availability, and sort order.
-- **Debounced Search:** Reduced request noise while typing in the product search bar.
-- **Recently Viewed:** Client-side localStorage tracking for quick return to recently inspected items.
-- **Server-Side Pagination:** Efficient product retrieval with MongoDB `skip()` and `limit()`.
-- **Wishlist/Favorites:** Logged-in users can save and manage products for later.
-- **Product Image Uploads:** Admin image handling through Multer-backed upload endpoints.
-- **Order Placement:** Clear checkout flow with persisted order records.
-- **Order Status Tracking:** Admins manage order transitions with backend validation.
-- **Nodemailer Email Notifications:** Automated email delivery for user-facing events.
-- **Polished UI Components:** Clean, responsive product cards, wishlist, and admin views for recruiter presentations.
-- **Responsive UI:** Mobile-friendly layouts built with Tailwind CSS.
-- **Toast Notifications:** Lightweight feedback for success and error states.
+- **JWT Authentication:** Secure sessions with bcrypt password hashing and 30-day token expiry.
+- **Protected Routes:** Frontend and backend role guards for multi-tenant access control.
+- **Admin Dashboard:** Order management, maintenance request handling, and product administration.
+- **Responsive Dashboards:** Tenant dashboard for rentals and maintenance, admin view for operations.
+- **Product Search & Filters:** Dynamic filtering by category, price, availability with server-side pagination.
+- **Debounced Search:** Optimized search input to reduce database queries during typing.
+- **Wishlist System:** Save and manage favorite items with persistent backend storage.
+- **Recently Viewed:** Client-side tracking of browsed products for quick navigation.
+- **Order Lifecycle:** Complete flow from placement through approval, rental, extension, and return.
+- **Image Uploads:** Admin product image handling via Multer with static file serving.
+- **Email Notifications:** Automated emails for account creation, order updates, and password resets (with console fallback).
+- **Maintenance Requests:** Users request maintenance; admins track and update status.
+- **Rental Extensions:** Tenants request extension with cost calculation; admins approve/reject.
+- **Layered UI Design:** Modern depth styling with neutral color palette and professional spacing.
+- **Mobile Responsive:** Optimized layouts for desktop, tablet, and mobile viewports.
+- **Toast Notifications:** Real-time feedback for user actions with success/error states.
 
 ---
 
@@ -189,12 +191,16 @@ VITE_APP_NAME=RentEase
 
 ## 💼 What This Project Demonstrates
 
-- **Full-Stack Development:** Integrating a modern React UI with a Node.js backend.
-- **Authentication Systems:** Implementing secure JWT-based authentication.
-- **REST API Design:** Structuring maintainable and stateless HTTP endpoints.
-- **Responsive UI Engineering:** Building mobile-first layouts with loading and empty states.
-- **Backend Architecture:** Separating concerns with routes, middleware, and models.
-- **Real-World Workflows:** Handling dynamic search, file uploads, and transactional emails.
+- **Full-Stack MERN Architecture:** Integration of React, Node.js, Express, and MongoDB in a production-grade workflow.
+- **Authentication & Security:** JWT implementation, password hashing, protected endpoints, and role-based access control.
+- **RESTful API Design:** Stateless endpoints with proper separation of concerns via routes, middleware, and models.
+- **Modern Frontend Engineering:** React hooks, centralized state management via Context API, responsive Tailwind CSS design.
+- **Database Optimization:** Server-side pagination, indexed queries, and Mongoose schema design for scalability.
+- **File Handling & Uploads:** Multer integration for image uploads with static file serving and security validation.
+- **Email Integration:** Nodemailer setup with SMTP fallback for reliable transactional communications.
+- **UI/UX Polish:** Layered visual design with professional spacing, responsive layouts, and real-time feedback systems.
+- **Admin Workflows:** Order and maintenance management interfaces demonstrating operational dashboards.
+- **Error Handling & Logging:** Centralized error middleware and debugging strategies.
 
 ---
 
