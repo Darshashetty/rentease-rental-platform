@@ -49,11 +49,24 @@ app.use('/api/reviews', require('./routes/reviews'));
 app.use('/api/users', require('./routes/users'));
 app.use('/api/admin', require('./routes/admin'));
 
+// Legacy route aliases for older frontend builds
+app.use('/auth', require('./routes/auth'));
+app.use('/properties', require('./routes/properties'));
+app.use('/bookings', require('./routes/bookings'));
+app.use('/reviews', require('./routes/reviews'));
+app.use('/users', require('./routes/users'));
+app.use('/admin', require('./routes/admin'));
+
 // Legacy routes for backward compatibility
 app.use('/api/products', require('./routes/products'));
 app.use('/api/orders', require('./routes/orders'));
 app.use('/api/maintenance', require('./routes/maintenance'));
 app.use('/api/wishlist', require('./routes/wishlist'));
+
+app.use('/products', require('./routes/products'));
+app.use('/orders', require('./routes/orders'));
+app.use('/maintenance', require('./routes/maintenance'));
+app.use('/wishlist', require('./routes/wishlist'));
 
 // Health check
 app.get('/api/health', (req, res) => {
