@@ -26,9 +26,9 @@ const importData = async () => {
       name: 'John Doe',
       email: 'john@example.com',
       password: 'password123',
-      role: 'user'
+      role: 'tenant'
     }));
-    console.log('✅ Test user created: john@example.com / password123');
+    console.log('✅ Test tenant user created: john@example.com / password123');
 
     const products = [
       // FURNITURE (8)
