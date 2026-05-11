@@ -1,0 +1,12 @@
+{
+  "buildCommand": "cd frontend && npm run build",
+  "outputDirectory": "frontend/dist",
+  "env": {
+    "VITE_API_URL": "https://rentease-rental-platform.onrender.com/api"
+  },
+  "git": {
+    "deploymentEnabled": {
+      "main": true
+    }
+  }
+}
